@@ -19,9 +19,18 @@ function countProduct(product, price, isIncrease) {
         increaseValue =  increaseValue - 1;
     }
     inputValue.value = increaseValue;
+    calculateProductPrice(product, price, increaseValue);
+}
 
+function onChangedCountProduct(product, price) {
+    const inputValue = document.getElementById(product + '-value');
+    let productNumber = parseInt(inputValue.value);
+     calculateProductPrice(product, price, productNumber);
+}
+
+function calculateProductPrice(product, price, countProduct) {
     const productPrice = document.getElementById(product + '-price');
-    productPrice.innerText = increaseValue * price;
+    productPrice.innerText = countProduct * price;
     calculateTotal();
 }
 function calculateTotal() {
@@ -35,4 +44,7 @@ function calculateTotal() {
     tax.innerText = taxAmount;
     const total = document.getElementById('total');
     total.innerText = subTotalPrice + taxAmount;
+}
+function change(){
+ console.log('Changed')
 }
