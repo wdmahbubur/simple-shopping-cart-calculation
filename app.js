@@ -1,14 +1,4 @@
-// document.getElementById('phone-increase').addEventListener('click', function () {
-//     const inputValue = document.getElementById('phone-value');
-//     const increaseValue = parseInt(inputValue.value) + 1;
-//     inputValue.value = increaseValue;
-// });
-// document.getElementById('phone-decrease').addEventListener('click', function () {
-//     const inputValue = document.getElementById('phone-value');
-//     const increaseValue = parseInt(inputValue.value) - 1;
-//     inputValue.value = increaseValue;
-// });
-
+//update count product when click plus minus
 function countProduct(product, price, isIncrease) {
     const inputValue = document.getElementById(product + '-value');
     let increaseValue = parseInt(inputValue.value)
@@ -22,17 +12,21 @@ function countProduct(product, price, isIncrease) {
     calculateProductPrice(product, price, increaseValue);
 }
 
+//update count product when onchnage
 function onChangedCountProduct(product, price) {
     const inputValue = document.getElementById(product + '-value');
     let productNumber = parseInt(inputValue.value);
      calculateProductPrice(product, price, productNumber);
 }
 
+//calculate product price when change item
 function calculateProductPrice(product, price, countProduct) {
     const productPrice = document.getElementById(product + '-price');
     productPrice.innerText = countProduct * price;
     calculateTotal();
 }
+
+//calculate total cost
 function calculateTotal() {
     const subTotal = document.getElementById('sub-total');
     const phonePrice = document.getElementById('phone-price').innerText;
@@ -44,7 +38,4 @@ function calculateTotal() {
     tax.innerText = taxAmount;
     const total = document.getElementById('total');
     total.innerText = subTotalPrice + taxAmount;
-}
-function change(){
- console.log('Changed')
 }
